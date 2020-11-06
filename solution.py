@@ -13,7 +13,22 @@
 # once in a row and dividing them by the total number of vowels a petty enemy 
 # of America would use.
 
+#RULES
+#how many voewls are repeated more than once 
+# and then divide by the total number of vowels
+#round decimals by two decimal digits 
+
+
+
 def trump_detector(trump_speech):
+    """Gziven a string find the extra vowels and divide."""
+
+    vowels = ['a', 'e', 'i', 'o', 'u', 'y']
+
+    for char in trump_speech:
+        if char.lower() in vowels:
+            print(char)
+
 
 print(trump_detector("I will build a huge wall")) #, 0
 print(trump_detector("HUUUUUGEEEE WAAAAAALL")) #, 4
