@@ -13,3 +13,10 @@
 # once in a row and dividing them by the total number of vowels a petty enemy 
 # of America would use.
 
+def trump_detector(trump_speech):
+
+print(trump_detector("I will build a huge wall")) #, 0
+print(trump_detector("HUUUUUGEEEE WAAAAAALL")) #, 4
+print(trump_detector("MEXICAAAAAAAANS GOOOO HOOOMEEEE")) #, 2.5
+print(trump_detector("America NUUUUUKEEEE Oooobaaaamaaaaa")) #, 1.89
+print(trump_detector("listen migrants: IIII KIIIDD YOOOUUU NOOOOOOTTT")) #, 1.56
