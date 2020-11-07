@@ -25,13 +25,24 @@ def trump_detector(trump_speech):
 
     vowels = ['a', 'e', 'i', 'o', 'u', 'y']
 
+    total = 0
+    trump_speech = trump_speech.lower()
+
     for char in trump_speech:
-        if char.lower() in vowels:
-            print(char)
+        count = trump_speech.count(char)
+        if char in vowels and count > 1:
+            total +=1
+    
+    print(total)
+
+    #identify vowels 
+    # count vowels if it is more than once 
+    #each vowel has it's own count 
+    # also count all the vowels in the string of the extras 
 
 
-print(trump_detector("I will build a huge wall")) #, 0
-print(trump_detector("HUUUUUGEEEE WAAAAAALL")) #, 4
-print(trump_detector("MEXICAAAAAAAANS GOOOO HOOOMEEEE")) #, 2.5
-print(trump_detector("America NUUUUUKEEEE Oooobaaaamaaaaa")) #, 1.89
-print(trump_detector("listen migrants: IIII KIIIDD YOOOUUU NOOOOOOTTT")) #, 1.56
+print(trump_detector("I will build a huge wall")) #, 0 vowels greater than one : 7
+print(trump_detector("HUUUUUGEEEE WAAAAAALL")) #, 4 vowels greater than one : 15
+print(trump_detector("MEXICAAAAAAAANS GOOOO HOOOMEEEE")) #, 2.5 vowels greater than one : 20
+print(trump_detector("America NUUUUUKEEEE Oooobaaaamaaaaa")) #, 1.89 vowels greater than one : 25
+print(trump_detector("listen migrants: IIII KIIIDD YOOOUUU NOOOOOOTTT")) #, 1.56 vowels greater than one : 21
