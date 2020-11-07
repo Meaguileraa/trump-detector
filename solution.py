@@ -24,19 +24,23 @@ def trump_detector(trump_speech):
     """Gziven a string find the extra vowels and divide."""
 
     vowels = ['a', 'e', 'i', 'o', 'u', 'y']
-
-    total = 0
     trump_speech = trump_speech.lower()
+    total = 0
+    vcount = set()
+    a = []
 
     for char in trump_speech:
         count = trump_speech.count(char)
         if char in vowels and count > 1:
             total +=1
+            vcount.add(char)
+            print(vcount)
     
-    print(total)
+            # print(vcount)
 
     #identify vowels 
-    # count vowels if it is more than once 
+    # get a total of all vowels that appear more than once 
+
     #each vowel has it's own count 
     # also count all the vowels in the string of the extras 
 
