@@ -18,35 +18,40 @@
 # and then divide by the total number of vowels
 #round decimals by two decimal digits 
 
-
+import re
 
 def trump_detector(trump_speech):
     """Gziven a string find the extra vowels and divide."""
 
-    vowels = ['a', 'e', 'i', 'o', 'u', 'y']
-    trump_speech = trump_speech.lower()
-    total = 0
-    vcount = set()
-    a = []
 
-    for char in trump_speech:
-        count = trump_speech.count(char)
-        if char in vowels and count > 1:
-            total +=1
-            vcount.add(char)
-            print(vcount)
-    
-            # print(vcount)
+    x=re.findall(r'([aeiou])(\1*)',trump_speech,re.I)
+    y=[len(i[1]) for i in x]
+    return round(sum(y)/len(y),2)
 
-    #identify vowels 
-    # get a total of all vowels that appear more than once 
+    # vowels = ['a', 'e', 'i', 'o', 'u', 'y']
+    # trump_speech = trump_speech.lower()
+    # total = 0
+    # vcount = set()
 
-    #each vowel has it's own count 
-    # also count all the vowels in the string of the extras 
+    # for char in trump_speech:
+    #     count = trump_speech.count(char)
+    #     if char in vowels and count > 1:
+    #         total +=1
+    #         vcount.add(char)
+    #         l = len(vcount)
+    #         final = total / l
+    # print(total)
+    # return final
+
+#ISSUE IS THE EXTRAS 
+#greater than one
 
 
-print(trump_detector("I will build a huge wall")) #, 0 vowels greater than one : 7
-print(trump_detector("HUUUUUGEEEE WAAAAAALL")) #, 4 vowels greater than one : 15
-print(trump_detector("MEXICAAAAAAAANS GOOOO HOOOMEEEE")) #, 2.5 vowels greater than one : 20
-print(trump_detector("America NUUUUUKEEEE Oooobaaaamaaaaa")) #, 1.89 vowels greater than one : 25
-print(trump_detector("listen migrants: IIII KIIIDD YOOOUUU NOOOOOOTTT")) #, 1.56 vowels greater than one : 21
+print(trump_detector("I will build a huge wall")) #, 0 / total vowels: 8
+# 0 because there are no extras 
+print(trump_detector("HUUUUUGEEEE WAAAAAALL")) #, 4 / total vowels: 15
+# 4 extra "U", 3 extra "E" and 5 extra "A" on 3 different vowel groups: 12/3 
+print(trump_detector("MEXICAAAAAAAANS GOOOO HOOOMEEEE")) #, 2.5 / total vowels: 21 / greater than one: 
+# 4 extra "U", 3 extra "E" and 5 extra "A" on 3 different vowel groups: 12/3 
+print(trump_detector("America NUUUUUKEEEE Oooobaaaamaaaaa")) #, 1.89 / total vowels: 26 / greater than one: 
+print(trump_detector("listen migrants: IIII KIIIDD YOOOUUU NOOOOOOTTT")) #, 1.56 / total vowels: 24 / greater than one: 
